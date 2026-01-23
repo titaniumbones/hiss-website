@@ -1,0 +1,22 @@
+// Main SCSS entry point
+
+// Abstracts
+@use "abstracts/variables" as *;
+@use "abstracts/mixins" as *;
+
+// Base
+@forward "base/reset";
+@forward "base/typography";
+
+// Layout (will be added later)
+// @import 'layout/header';
+// @import 'layout/footer';
+// @import 'layout/navigation';
+
+// Components (will be added later)
+// @import 'components/button';
+// @import 'components/card';
+
+// Pages (will be added later)
+// @import 'pages/home';
+// @import 'pages/calendar';
