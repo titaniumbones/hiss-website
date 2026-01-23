@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "@/styles/main.scss";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "HISS - Humanities & Interpretive Social Sciences Hub",
@@ -14,7 +16,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "100vh",
+          }}
+        >
+          <Header />
+          <main style={{ flex: 1 }}>{children}</main>
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }

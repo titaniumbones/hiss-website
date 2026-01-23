@@ -1,0 +1,70 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:math";
+
+.header {
+  background-color: $white;
+  border-bottom: 1px solid $light-gray;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &__container {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-md;
+    min-height: $header-height;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+
+      &:focus {
+        outline: 2px solid $uoft-accent-blue;
+        outline-offset: 4px;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include respond-to("md") {
+      display: flex;
+      gap: $spacing-lg;
+    }
+  }
+
+  &__mobile-toggle {
+    display: block;
+    background: none;
+    border: none;
+    padding: $spacing-sm;
+    cursor: pointer;
+    color: $uoft-blue;
+
+    @include respond-to("md") {
+      display: none;
+    }
+
+    &:hover {
+      color: $uoft-accent-blue;
+    }
+
+    &:focus {
+      outline: 2px solid $uoft-accent-blue;
+      outline-offset: 2px;
+    }
+  }
+}

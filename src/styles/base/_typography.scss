@@ -1,6 +1,6 @@
 @use "../abstracts/variables" as *;
 
-// Typography styles
+// Typography styles following UofT Brand Guidelines
 h1,
 h2,
 h3,
@@ -8,52 +8,75 @@ h4,
 h5,
 h6 {
   font-family: $font-primary;
-  font-weight: 700;
-  line-height: 1.2;
+  line-height: $line-height-tight;
   margin-top: 0;
   margin-bottom: $spacing-md;
+  color: $dark-gray;
 }
 
 h1 {
   font-size: $font-size-h1;
+  font-weight: $font-weight-heavy;
 }
 
 h2 {
   font-size: $font-size-h2;
+  font-weight: $font-weight-heavy;
 }
 
 h3 {
   font-size: $font-size-h3;
+  font-weight: $font-weight-heavy;
 }
 
 h4 {
   font-size: $font-size-h4;
+  font-weight: $font-weight-bold;
 }
 
 h5 {
   font-size: $font-size-h5;
+  font-weight: $font-weight-bold;
 }
 
 h6 {
   font-size: $font-size-h6;
+  font-weight: $font-weight-bold;
 }
 
 p {
   margin-top: 0;
   margin-bottom: $spacing-md;
+  line-height: $line-height-normal;
 }
 
+// Links follow UofT style
 a {
   color: $uoft-blue;
   text-decoration: underline;
   transition: color 0.2s ease;
 
   &:hover {
-    color: $uoft-light-blue;
+    color: $uoft-accent-blue;
   }
 
   &:focus {
-    outline: 2px solid $uoft-light-blue;
+    outline: 2px solid $uoft-accent-blue;
     outline-offset: 2px;
   }
+
+  &:visited {
+    color: $uoft-blue;
+  }
+}
+
+// Blockquotes (UofT style)
+blockquote {
+  font-size: $font-size-quote;
+  font-weight: $font-weight-light;
+  line-height: $line-height-normal;
+  margin: $spacing-xl 0;
+  padding-left: $spacing-lg;
+  border-left: 4px solid $uoft-accent-blue;
+  color: $dark-gray;
 }

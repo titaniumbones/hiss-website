@@ -1,31 +1,61 @@
-// UofT Brand Colors - Placeholders (will be updated with official guidelines)
-$uoft-blue: #002a5c;
-$uoft-dark-blue: #00204e;
-$uoft-light-blue: #0077c8;
+// UofT Official Brand Colors (from Brand Portal)
+// Primary Blue - Pantone PMS 655
+$uoft-blue: #1e3765;
+$uoft-blue-rgb: 30, 55, 101;
+
+// Secondary/Accent Blue - Pantone 633
+$uoft-accent-blue: #007fa3;
+$uoft-accent-blue-rgb: 0, 127, 163;
 
 // Grayscale
 $black: #000000;
 $dark-gray: #333333;
-$medium-gray: #666666;
+$medium-gray: #555555;
 $light-gray: #cccccc;
 $white: #ffffff;
 
-// Typography - Placeholders (will be updated with UofT guidelines)
-$font-primary:
-  -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-  "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-$font-secondary: Georgia, "Times New Roman", serif;
+// Status Colors
+$success-green: #00a189;
+$error-red: #e3140d;
 
-// Font Sizes
-$font-size-base: 1rem;
-$font-size-small: 0.875rem;
-$font-size-large: 1.25rem;
-$font-size-h1: 2.5rem;
-$font-size-h2: 2rem;
-$font-size-h3: 1.75rem;
-$font-size-h4: 1.5rem;
-$font-size-h5: 1.25rem;
-$font-size-h6: 1rem;
+// Typography - Official UofT Fonts
+// Primary: Trade Gothic Next (not freely available, using web-safe alternatives)
+$font-primary:
+  "Trade Gothic Next",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  "Helvetica Neue",
+  "Arial Narrow",
+  Helvetica,
+  Arial,
+  sans-serif;
+// Secondary: Bembo (use sparingly for body text only)
+$font-secondary: Bembo, Georgia, "Times New Roman", serif;
+
+// Font Sizes (based on UofT web guidelines)
+$font-size-base: 1.125rem; // 18px - UofT body text standard
+$font-size-small: 1rem; // 16px - secondary text
+$font-size-large: 1.5rem; // 24px - emphasized content
+$font-size-h1: 2.8125rem; // 45px - main page titles
+$font-size-h2: 2rem; // 32px - section headers
+$font-size-h3: 1.375rem; // 22px - subsection headers
+$font-size-h4: 1.25rem; // 20px - minor headings
+$font-size-h5: 1.125rem; // 18px
+$font-size-h6: 1rem; // 16px
+$font-size-display: 2.5rem; // 40px - large display text
+$font-size-quote: 1.5rem; // 24px - block quotes
+
+// Font Weights (based on UofT guidelines)
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$font-weight-heavy: 900;
+
+// Line Heights
+$line-height-tight: 1.1; // headings
+$line-height-normal: 1.5; // body text
+$line-height-relaxed: 1.6;
 
 // Spacing
 $spacing-xs: 0.25rem;

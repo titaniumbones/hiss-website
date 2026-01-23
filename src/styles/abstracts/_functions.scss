@@ -1,0 +1,31 @@
+// SCSS Functions for UofT Brand
+
+// Convert RGB values to rgba with opacity
+@function rgba-uoft-blue($opacity) {
+  @return rgba($uoft-blue-rgb, $opacity);
+}
+
+@function rgba-uoft-accent($opacity) {
+  @return rgba($uoft-accent-blue-rgb, $opacity);
+}
+
+// Calculate responsive font size
+@function fluid-font-size(
+  $min-size,
+  $max-size,
+  $min-vw: 320px,
+  $max-vw: 1200px
+) {
+  @return calc(
+    #{$min-size} + (#{strip-unit($max-size)} - #{strip-unit($min-size)}) *
+      ((100vw - #{$min-vw}) / (#{strip-unit($max-vw)} - #{strip-unit($min-vw)}))
+  );
+}
+
+// Strip units from a value
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+  @return $number;
+}

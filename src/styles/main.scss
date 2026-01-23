@@ -3,19 +3,19 @@
 // Abstracts
 @use "abstracts/variables" as *;
 @use "abstracts/mixins" as *;
+@use "abstracts/functions" as *;
 
 // Base
 @forward "base/reset";
 @forward "base/typography";
 
-// Layout (will be added later)
-// @import 'layout/header';
-// @import 'layout/footer';
-// @import 'layout/navigation';
+// Layout
+@forward "layout/header";
+@forward "layout/footer";
+@forward "layout/navigation";
 
-// Components (will be added later)
-// @import 'components/button';
-// @import 'components/card';
+// Components
+@forward "components/typography";
 
 // Pages (will be added later)
 // @import 'pages/home';

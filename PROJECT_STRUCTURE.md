@@ -2,7 +2,7 @@
 
 ## Directory Organization
 
-```
+````
 hiss-website/
 ├── .beads/                 # Issue tracking database
 ├── src/
@@ -52,7 +52,7 @@ TypeScript path alias `@/*` maps to `src/*`:
 ```typescript
 import { SITE_NAME } from "@/lib/constants";
 import type { NavigationItem } from "@/types";
-```
+````
 
 ## Styling Approach
 
