@@ -1,0 +1,181 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.home {
+  &__hero {
+    background: linear-gradient(135deg, $uoft-blue 0%, $uoft-accent-blue 100%);
+    color: $white;
+    padding: $spacing-xxl * 2 0;
+    text-align: center;
+
+    @include respond-to("md") {
+      padding: $spacing-xxl * 3 0;
+    }
+  }
+
+  &__hero-content {
+    @include container;
+    max-width: 900px;
+  }
+
+  &__title {
+    color: $white;
+    margin-bottom: $spacing-lg;
+    font-size: $font-size-h2;
+
+    @include respond-to("md") {
+      font-size: $font-size-h1;
+    }
+  }
+
+  &__subtitle {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: $font-size-base;
+
+    @include respond-to("md") {
+      font-size: $font-size-large;
+    }
+  }
+
+  &__intro,
+  &__departments,
+  &__mission,
+  &__cta {
+    padding: $spacing-xxl * 2 0;
+  }
+
+  &__intro {
+    background-color: $white;
+  }
+
+  &__departments {
+    background-color: rgba(30, 55, 101, 0.03);
+  }
+
+  &__mission {
+    background-color: $white;
+  }
+
+  &__cta {
+    background-color: rgba(0, 127, 163, 0.05);
+    text-align: center;
+  }
+
+  &__container {
+    @include container;
+  }
+
+  &__departments-grid {
+    display: grid;
+    gap: $spacing-lg;
+    margin-top: $spacing-xl;
+
+    @include respond-to("sm") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to("lg") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__department-card {
+    background-color: $white;
+    padding: $spacing-lg;
+    border-radius: 8px;
+    border: 2px solid $light-gray;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: $uoft-accent-blue;
+      box-shadow: 0 4px 12px rgba(0, 127, 163, 0.1);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__department-name {
+    font-size: $font-size-h4;
+    font-weight: $font-weight-bold;
+    color: $uoft-blue;
+    margin: 0;
+    line-height: $line-height-tight;
+  }
+
+  &__mission-grid {
+    display: grid;
+    gap: $spacing-xl;
+    margin-top: $spacing-xl;
+
+    @include respond-to("md") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__mission-item {
+    h3 {
+      font-size: $font-size-h4;
+      font-weight: $font-weight-bold;
+      color: $uoft-blue;
+      margin-bottom: $spacing-md;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  &__cta-buttons {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: $spacing-xl;
+  }
+}
+
+// Button styles
+.button {
+  display: inline-block;
+  padding: $spacing-md $spacing-xl;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+
+  &--primary {
+    background-color: $uoft-blue;
+    color: $white;
+    border-color: $uoft-blue;
+
+    &:hover {
+      background-color: rgba(30, 55, 101, 0.9);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(30, 55, 101, 0.3);
+    }
+
+    &:focus {
+      outline: 2px solid $uoft-accent-blue;
+      outline-offset: 2px;
+    }
+  }
+
+  &--secondary {
+    background-color: $white;
+    color: $uoft-blue;
+    border-color: $uoft-blue;
+
+    &:hover {
+      background-color: rgba(30, 55, 101, 0.05);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(30, 55, 101, 0.2);
+    }
+
+    &:focus {
+      outline: 2px solid $uoft-accent-blue;
+      outline-offset: 2px;
+    }
+  }
+}

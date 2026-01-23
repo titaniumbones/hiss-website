@@ -1,0 +1,47 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.calendar-page {
+  &__header {
+    background-color: rgba(30, 55, 101, 0.05);
+    padding: $spacing-xxl 0;
+    border-bottom: 1px solid $light-gray;
+  }
+
+  &__content {
+    padding: $spacing-xxl 0;
+  }
+
+  &__container {
+    @include container;
+  }
+
+  &__placeholder {
+    background-color: $white;
+    padding: $spacing-xxl;
+    border-radius: 8px;
+    border: 2px dashed $light-gray;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+
+    h2 {
+      color: $uoft-blue;
+      margin-bottom: $spacing-md;
+    }
+
+    ul {
+      text-align: left;
+      max-width: 500px;
+      margin: $spacing-lg auto 0;
+    }
+  }
+
+  // Future calendar styles will be added here
+  &__calendar-container {
+    background-color: $white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+}

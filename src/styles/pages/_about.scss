@@ -1,0 +1,86 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.about-page {
+  &__header {
+    background-color: rgba(30, 55, 101, 0.05);
+    padding: $spacing-xxl 0;
+    border-bottom: 1px solid $light-gray;
+  }
+
+  &__content {
+    padding: $spacing-xxl 0;
+  }
+
+  &__container {
+    @include container;
+    max-width: 900px;
+  }
+
+  &__mission,
+  &__vision,
+  &__founding,
+  &__activities {
+    margin-bottom: $spacing-xxl * 2;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__vision {
+    blockquote {
+      background-color: rgba(0, 127, 163, 0.05);
+      padding: $spacing-xl;
+      border-radius: 8px;
+      font-style: italic;
+    }
+  }
+
+  &__departments-list {
+    display: grid;
+    gap: $spacing-md;
+    margin-top: $spacing-lg;
+
+    @include respond-to("md") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__department {
+    background-color: rgba(30, 55, 101, 0.05);
+    padding: $spacing-md $spacing-lg;
+    border-radius: 4px;
+    border-left: 4px solid $uoft-blue;
+
+    h3 {
+      font-size: $font-size-base;
+      font-weight: $font-weight-bold;
+      color: $uoft-blue;
+      margin: 0;
+    }
+  }
+
+  &__activities-grid {
+    display: grid;
+    gap: $spacing-xl;
+    margin-top: $spacing-lg;
+
+    @include respond-to("md") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__activity {
+    h3 {
+      font-size: $font-size-h4;
+      font-weight: $font-weight-bold;
+      color: $uoft-blue;
+      margin-bottom: $spacing-sm;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

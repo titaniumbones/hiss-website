@@ -17,6 +17,8 @@
 // Components
 @forward "components/typography";
 
-// Pages (will be added later)
-// @import 'pages/home';
-// @import 'pages/calendar';
+// Pages
+@forward "pages/home";
+@forward "pages/calendar";
+@forward "pages/about";
+@forward "pages/contact";

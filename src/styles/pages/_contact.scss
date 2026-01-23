@@ -1,0 +1,108 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.contact-page {
+  &__header {
+    background-color: rgba(30, 55, 101, 0.05);
+    padding: $spacing-xxl 0;
+    border-bottom: 1px solid $light-gray;
+  }
+
+  &__content {
+    padding: $spacing-xxl 0;
+  }
+
+  &__container {
+    @include container;
+  }
+
+  &__grid {
+    display: grid;
+    gap: $spacing-xxl;
+
+    @include respond-to("lg") {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__info,
+  &__form {
+    h2 {
+      margin-bottom: $spacing-lg;
+    }
+  }
+
+  &__section {
+    margin-bottom: $spacing-xl;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    h3 {
+      font-size: $font-size-h4;
+      font-weight: $font-weight-bold;
+      color: $uoft-blue;
+      margin-bottom: $spacing-sm;
+    }
+
+    address {
+      font-style: normal;
+      line-height: $line-height-relaxed;
+    }
+
+    a {
+      color: $uoft-blue;
+      font-weight: $font-weight-bold;
+
+      &:hover {
+        color: $uoft-accent-blue;
+      }
+    }
+  }
+
+  &__form {
+    background-color: rgba(0, 127, 163, 0.03);
+    padding: $spacing-xl;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 127, 163, 0.2);
+
+    p:last-of-type {
+      margin-bottom: $spacing-xl;
+    }
+  }
+
+  &__quick-links {
+    margin-top: $spacing-xl;
+    padding-top: $spacing-xl;
+    border-top: 1px solid rgba(0, 127, 163, 0.2);
+
+    h3 {
+      font-size: $font-size-h4;
+      font-weight: $font-weight-bold;
+      color: $uoft-blue;
+      margin-bottom: $spacing-md;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: $spacing-sm;
+
+        a {
+          color: $uoft-blue;
+          text-decoration: none;
+          font-weight: $font-weight-normal;
+
+          &:hover {
+            color: $uoft-accent-blue;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
