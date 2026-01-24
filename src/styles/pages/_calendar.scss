@@ -16,32 +16,63 @@
     @include container;
   }
 
-  &__placeholder {
-    background-color: $white;
-    padding: $spacing-xxl;
+  &__events {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    margin-top: $spacing-xl;
+  }
+
+  &__placeholder,
+  &__error,
+  &__empty {
+    background-color: rgba(0, 127, 163, 0.05);
+    padding: $spacing-xl;
     border-radius: 8px;
-    border: 2px dashed $light-gray;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
+    border: 1px solid rgba(0, 127, 163, 0.2);
 
     h2 {
-      color: $uoft-blue;
-      margin-bottom: $spacing-md;
+      margin-bottom: $spacing-lg;
     }
 
-    ul {
+    ul,
+    ol {
       text-align: left;
-      max-width: 500px;
-      margin: $spacing-lg auto 0;
+      margin-top: $spacing-md;
+      padding-left: $spacing-xl;
+
+      li {
+        margin-bottom: $spacing-sm;
+        color: $dark-gray;
+      }
+    }
+
+    code {
+      background-color: rgba(30, 55, 101, 0.1);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: "Monaco", "Menlo", "Courier New", monospace;
+      font-size: 0.9em;
     }
   }
 
-  // Future calendar styles will be added here
-  &__calendar-container {
-    background-color: $white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+  &__code {
+    background-color: $dark-gray;
+    color: #4af626;
+    padding: $spacing-md;
+    border-radius: 4px;
+    font-family: "Monaco", "Menlo", "Courier New", monospace;
+    font-size: $font-size-small;
+    overflow-x: auto;
+    margin: $spacing-md 0;
+  }
+
+  &__error {
+    border-color: rgba(227, 20, 13, 0.3);
+    background-color: rgba(227, 20, 13, 0.05);
+  }
+
+  &__empty {
+    text-align: center;
   }
 }

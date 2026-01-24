@@ -44,8 +44,12 @@ export default function Home() {
           </Paragraph>
           <div className="home__departments-grid">
             {FOUNDING_DEPARTMENTS.map((dept) => (
-              <div key={dept} className="home__department-card">
-                <h3 className="home__department-name">{dept}</h3>
+              <div key={dept.name} className="home__department-card">
+                <h3 className="home__department-name">
+                  <a href={dept.url} target="_blank" rel="noopener noreferrer">
+                    {dept.name}
+                  </a>
+                </h3>
               </div>
             ))}
           </div>

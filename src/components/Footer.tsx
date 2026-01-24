@@ -20,8 +20,10 @@ export default function Footer() {
             <h3>Founding Departments</h3>
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {FOUNDING_DEPARTMENTS.map((dept) => (
-                <li key={dept} style={{ marginBottom: "0.5rem" }}>
-                  {dept}
+                <li key={dept.name} style={{ marginBottom: "0.5rem" }}>
+                  <a href={dept.url} target="_blank" rel="noopener noreferrer">
+                    {dept.name}
+                  </a>
                 </li>
               ))}
             </ul>

@@ -6,12 +6,30 @@ export const SITE_DESCRIPTION =
 export const SITE_URL = "https://hiss.utsc.utoronto.ca"; // Update with actual URL
 
 export const FOUNDING_DEPARTMENTS = [
-  "Anthropology",
-  "Department of Language Studies",
-  "English",
-  "Geography",
-  "Historical and Cultural Studies",
-  "Arts, Culture, and Media",
+  {
+    name: "Anthropology",
+    url: "https://www.utsc.utoronto.ca/anthropology/",
+  },
+  {
+    name: "Department of Language Studies",
+    url: "https://www.utsc.utoronto.ca/dls/",
+  },
+  {
+    name: "English",
+    url: "https://www.utsc.utoronto.ca/engdept/",
+  },
+  {
+    name: "Geography",
+    url: "https://www.utsc.utoronto.ca/geography/",
+  },
+  {
+    name: "Historical and Cultural Studies",
+    url: "https://www.utsc.utoronto.ca/hcs/",
+  },
+  {
+    name: "Arts, Culture, and Media",
+    url: "https://www.utsc.utoronto.ca/acm/",
+  },
 ] as const;
 
 export const NAVIGATION_ITEMS = [
@@ -51,4 +69,13 @@ export const CONTACT_INFO = {
     postalCode: "M1C 1A4",
     country: "Canada",
   },
+} as const;
+
+// Calendar configuration
+export const CALENDAR_CONFIG = {
+  // ICS feed URL from Outlook calendar
+  // To get this: In Outlook > Calendar > Share > Publish Calendar > ICS URL
+  icsUrl: process.env.NEXT_PUBLIC_CALENDAR_ICS_URL || "",
+  // How many upcoming events to show
+  maxEvents: 10,
 } as const;

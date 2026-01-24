@@ -58,8 +58,16 @@ export default function AboutPage() {
             </Paragraph>
             <div className="about-page__departments-list">
               {FOUNDING_DEPARTMENTS.map((dept) => (
-                <div key={dept} className="about-page__department">
-                  <h3>{dept}</h3>
+                <div key={dept.name} className="about-page__department">
+                  <h3>
+                    <a
+                      href={dept.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {dept.name}
+                    </a>
+                  </h3>
                 </div>
               ))}
             </div>
