@@ -26,7 +26,8 @@ export default async function CalendarPage() {
       const allEvents = await fetchCalendarEvents(CALENDAR_CONFIG.icsUrl);
       events = getUpcomingEvents(allEvents, CALENDAR_CONFIG.maxEvents);
     } catch (err) {
-      console.error("Failed to load calendar events:", err);
+      const errorMessage = err instanceof Error ? err.message : String(err);
+      console.error("Failed to load calendar events:", errorMessage, err);
       error = "Unable to load calendar events. Please try again later.";
     }
   }
