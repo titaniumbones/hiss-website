@@ -2,7 +2,7 @@
 
 Official website for the **Humanities and Interpretive Social Sciences Research Hub** at the University of Toronto Scarborough.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/your-site-id/deploy-status)](https://app.netlify.com/sites/your-site-name/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1d5f9f46-f4ef-4920-8b86-fa05ba3cabfc/deploy-status)](https://app.netlify.com/sites/hiss-hub/deploys)
 
 ## 🎯 About
 
