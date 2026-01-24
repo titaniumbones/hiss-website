@@ -19,8 +19,9 @@
   &__events {
     display: flex;
     flex-direction: column;
-    gap: $spacing-lg;
-    margin-top: $spacing-xl;
+    gap: $spacing-xxl;
+    margin-top: $spacing-xxl;
+    max-width: 1000px;
   }
 
   &__placeholder,

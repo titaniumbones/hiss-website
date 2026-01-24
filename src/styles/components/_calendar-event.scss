@@ -3,22 +3,26 @@
 
 .calendar-event {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: $spacing-lg;
-  padding: $spacing-lg;
+  grid-template-columns: 90px 1fr;
+  gap: $spacing-xl;
+  padding: $spacing-xl;
   background-color: $white;
-  border: 2px solid $light-gray;
+  border: 2px solid rgba(30, 55, 101, 0.15);
+  border-left: 4px solid $uoft-accent-blue;
   border-radius: 8px;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 
   &:hover {
-    border-color: $uoft-accent-blue;
-    box-shadow: 0 4px 12px rgba(0, 127, 163, 0.15);
-    transform: translateY(-2px);
+    border-color: rgba(0, 127, 163, 0.3);
+    border-left-color: $uoft-blue;
+    box-shadow: 0 6px 20px rgba(0, 127, 163, 0.15);
+    transform: translateY(-3px);
   }
 
   @include respond-to("sm") {
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 110px 1fr;
+    gap: $spacing-xxl;
   }
 
   &__date {
@@ -26,54 +30,72 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(30, 55, 101, 0.05);
-    padding: $spacing-md;
-    border-radius: 8px;
-    min-width: 80px;
+    background: linear-gradient(
+      135deg,
+      $uoft-blue 0%,
+      rgba(30, 55, 101, 0.85) 100%
+    );
+    padding: $spacing-lg $spacing-md;
+    border-radius: 12px;
+    min-width: 90px;
     position: relative;
+    box-shadow: 0 3px 10px rgba(30, 55, 101, 0.2);
 
     @include respond-to("sm") {
-      min-width: 100px;
+      min-width: 110px;
+      padding: $spacing-xl $spacing-lg;
     }
   }
 
   &__day {
-    font-size: 2rem;
-    font-weight: $font-weight-bold;
-    color: $uoft-blue;
+    font-size: 2.5rem;
+    font-weight: $font-weight-heavy;
+    color: $white;
     line-height: 1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 
     @include respond-to("sm") {
-      font-size: 2.5rem;
+      font-size: 3rem;
     }
   }
 
   &__month {
-    font-size: $font-size-small;
+    font-size: 0.875rem;
     font-weight: $font-weight-bold;
-    color: $medium-gray;
+    color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
     margin-top: $spacing-xs;
+
+    @include respond-to("sm") {
+      font-size: 1rem;
+    }
   }
 
   &__badge {
     position: absolute;
-    bottom: -8px;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: $uoft-accent-blue;
+    background-color: $success-green;
     color: $white;
     font-size: 0.625rem;
     font-weight: $font-weight-bold;
-    padding: 2px 8px;
-    border-radius: 12px;
+    padding: 4px 10px;
+    border-radius: 14px;
     white-space: nowrap;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
+    box-shadow: 0 2px 8px rgba(0, 161, 137, 0.4);
+
+    @include respond-to("sm") {
+      font-size: 0.75rem;
+      padding: 5px 12px;
+    }
 
     &--week {
-      background-color: rgba(0, 127, 163, 0.7);
+      background-color: $uoft-accent-blue;
+      box-shadow: 0 2px 8px rgba(0, 127, 163, 0.4);
     }
   }
 
@@ -84,23 +106,28 @@
   }
 
   &__title {
-    font-size: $font-size-h4;
+    font-size: $font-size-h3;
     font-weight: $font-weight-bold;
     color: $uoft-blue;
-    margin: 0;
+    margin: 0 0 $spacing-md 0;
     line-height: $line-height-tight;
+
+    @include respond-to("sm") {
+      font-size: $font-size-h3;
+    }
   }
 
   &__meta {
     display: flex;
     flex-direction: column;
-    gap: $spacing-xs;
-    color: $medium-gray;
-    font-size: $font-size-small;
+    gap: $spacing-sm;
+    color: $dark-gray;
+    font-size: $font-size-base;
+    margin-bottom: $spacing-md;
 
     @include respond-to("sm") {
       flex-direction: row;
-      gap: $spacing-lg;
+      gap: $spacing-xl;
     }
   }
 
@@ -108,17 +135,22 @@
   &__location {
     display: flex;
     align-items: center;
-    gap: $spacing-xs;
+    gap: $spacing-sm;
+    font-weight: $font-weight-normal;
 
     svg {
       flex-shrink: 0;
+      color: $uoft-accent-blue;
+      width: 18px;
+      height: 18px;
     }
   }
 
   &__description {
     color: $dark-gray;
     line-height: $line-height-relaxed;
-    margin: $spacing-sm 0 0;
+    margin: 0;
+    font-size: $font-size-base;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -131,13 +163,18 @@
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: $spacing-xs;
-    margin-top: $spacing-xs;
-    transition: color 0.2s ease;
+    gap: $spacing-sm;
+    margin-top: $spacing-md;
+    padding: $spacing-sm $spacing-lg;
+    background-color: rgba(0, 127, 163, 0.08);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: $font-size-base;
 
     &:hover {
-      color: $uoft-blue;
-      text-decoration: underline;
+      background-color: $uoft-accent-blue;
+      color: $white;
+      transform: translateX(4px);
     }
   }
 }
