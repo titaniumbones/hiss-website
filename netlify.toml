@@ -46,14 +46,10 @@
 
   [context.production.environment]
     NEXT_PUBLIC_SITE_URL = "https://hiss.utsc.utoronto.ca"
-    NODE_ENV = "production"
 
 # Deploy previews (PR previews)
 [context.deploy-preview]
   command = "npm run build"
-
-  [context.deploy-preview.environment]
-    NODE_ENV = "production"
 
 # Branch deploys
 [context.branch-deploy]
