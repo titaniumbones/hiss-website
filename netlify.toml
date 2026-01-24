@@ -5,21 +5,13 @@
   # Build command
   command = "npm run build"
 
-  # Output directory for Next.js
-  publish = ".next"
-
   # Node version
   environment = { NODE_VERSION = "20" }
 
 # Next.js specific plugin for Netlify
+# This plugin handles all Next.js routing and deployment
 [[plugins]]
   package = "@netlify/plugin-nextjs"
-
-# Redirect rules
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
 
 # Headers for security and performance
 [[headers]]
