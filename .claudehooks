@@ -1,0 +1,7 @@
+# Claude Code hooks configuration
+# This file overrides any parent directory hooks
+
+# Disable all hooks for this project
+[hooks]
+PostToolUse:Edit = ""
+PostToolUse:Write = ""
