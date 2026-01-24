@@ -1,8 +1,26 @@
 import { H1, H2, Paragraph } from "@/components/Typography";
 import { FOUNDING_DEPARTMENTS, SITE_NAME } from "@/lib/constants";
+import {
+  getPageContent,
+  extractSection,
+  extractSectionText,
+  parseContentItems,
+} from "@/lib/markdown";
 import "../styles/pages/_home.scss";
 
-export default function Home() {
+export default async function Home() {
+  const content = await getPageContent("home");
+
+  if (!content) {
+    return (
+      <div className="home">
+        <p>Content not available</p>
+      </div>
+    );
+  }
+
+  const missionItems = parseContentItems(content.htmlContent, "mission-");
+
   return (
     <div className="home">
       <section className="home__hero">
@@ -11,8 +29,7 @@ export default function Home() {
             Humanities & Interpretive Social Sciences Hub
           </H1>
           <Paragraph className="home__subtitle" lead>
-            Fostering cross-disciplinary community and collaborative research at
-            the University of Toronto Scarborough.
+            {content.metadata.heroSubtitle as string}
           </Paragraph>
         </div>
       </section>
@@ -20,18 +37,11 @@ export default function Home() {
       <section className="home__intro">
         <div className="home__container">
           <H2>Welcome to {SITE_NAME}</H2>
-          <Paragraph lead>
-            The Humanities and Interpretive Social Sciences Research Hub (HISS)
-            is a vibrant intellectual community bringing together faculty from
-            diverse disciplines to explore complex questions about human
-            experience, culture, and society.
-          </Paragraph>
-          <Paragraph>
-            Through collaborative research, interdisciplinary dialogue, and
-            innovative scholarship, we advance understanding of the humanities
-            and social sciences while addressing contemporary challenges facing
-            our world.
-          </Paragraph>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: extractSection(content.htmlContent, "intro"),
+            }}
+          />
         </div>
       </section>
 
@@ -39,8 +49,7 @@ export default function Home() {
         <div className="home__container">
           <H2>Founding Departments</H2>
           <Paragraph>
-            HISS unites faculty from six departments at UTSC, creating a rich
-            environment for cross-disciplinary exchange:
+            {extractSectionText(content.htmlContent, "departments-intro")}
           </Paragraph>
           <div className="home__departments-grid">
             {FOUNDING_DEPARTMENTS.map((dept) => (
@@ -60,35 +69,12 @@ export default function Home() {
         <div className="home__container">
           <H2>Our Mission</H2>
           <div className="home__mission-grid">
-            <div className="home__mission-item">
-              <h3>Collaborative Research</h3>
-              <Paragraph>
-                We facilitate interdisciplinary research projects that draw on
-                diverse methodologies and theoretical frameworks.
-              </Paragraph>
-            </div>
-            <div className="home__mission-item">
-              <h3>Community Building</h3>
-              <Paragraph>
-                We create spaces for faculty to connect, share ideas, and
-                develop new collaborations across departmental boundaries.
-              </Paragraph>
-            </div>
-            <div className="home__mission-item">
-              <h3>Intellectual Exchange</h3>
-              <Paragraph>
-                We host events, workshops, and seminars that bring together
-                scholars to explore pressing questions in the humanities and
-                social sciences.
-              </Paragraph>
-            </div>
-            <div className="home__mission-item">
-              <h3>Innovative Scholarship</h3>
-              <Paragraph>
-                We support cutting-edge research that pushes the boundaries of
-                traditional disciplines and methods.
-              </Paragraph>
-            </div>
+            {missionItems.map((item) => (
+              <div key={item.id} className="home__mission-item">
+                <h3>{item.heading}</h3>
+                <Paragraph>{item.content}</Paragraph>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -97,8 +83,7 @@ export default function Home() {
         <div className="home__container">
           <H2>Get Involved</H2>
           <Paragraph lead>
-            Join our community of scholars exploring the humanities and
-            interpretive social sciences.
+            {extractSectionText(content.htmlContent, "cta-intro")}
           </Paragraph>
           <div className="home__cta-buttons">
             <a href="/calendar" className="button button--primary">
@@ -112,4 +97,12 @@ export default function Home() {
       </section>
     </div>
   );
+}
+
+export async function generateMetadata() {
+  const content = await getPageContent("home");
+  return {
+    title: content?.metadata.title || "HISS Hub",
+    description: content?.metadata.description || "",
+  };
 }

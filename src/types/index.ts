@@ -21,3 +21,24 @@ export interface PageMetadata {
   description: string;
   keywords?: string[];
 }
+
+export interface ContentMetadata {
+  title: string;
+  description: string;
+  lastUpdated?: string;
+  keywords?: string[];
+  [key: string]: unknown;
+}
+
+export interface MarkdownContent {
+  slug: string;
+  metadata: ContentMetadata;
+  rawContent: string;
+  htmlContent: string;
+}
+
+export interface ContentSection {
+  id: string;
+  heading: string;
+  content: string;
+}

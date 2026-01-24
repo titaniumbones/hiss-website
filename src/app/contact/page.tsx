@@ -1,21 +1,35 @@
 import { H1, H2, Paragraph } from "@/components/Typography";
-import { CONTACT_INFO, SITE_NAME } from "@/lib/constants";
+import { CONTACT_INFO } from "@/lib/constants";
+import { getPageContent, extractSectionText } from "@/lib/markdown";
 import "../../styles/pages/_contact.scss";
 
-export const metadata = {
-  title: "Contact - HISS Hub",
-  description: "Get in touch with the HISS Hub team",
-};
+export async function generateMetadata() {
+  const content = await getPageContent("contact");
+  return {
+    title: content?.metadata.title || "Contact - HISS Hub",
+    description:
+      content?.metadata.description || "Get in touch with the HISS Hub team",
+  };
+}
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const content = await getPageContent("contact");
+
+  if (!content) {
+    return (
+      <div className="contact-page">
+        <p>Content not available</p>
+      </div>
+    );
+  }
+
   return (
     <div className="contact-page">
       <section className="contact-page__header">
         <div className="contact-page__container">
           <H1>Contact Us</H1>
           <Paragraph lead>
-            We&apos;d love to hear from you. Get in touch with the {SITE_NAME}{" "}
-            team.
+            {content.metadata.headerSubtitle as string}
           </Paragraph>
         </div>
       </section>
@@ -52,9 +66,7 @@ export default function ContactPage() {
               <div className="contact-page__section">
                 <h3>Connect With Us</h3>
                 <Paragraph>
-                  Follow our calendar for upcoming events, workshops, and
-                  seminars. Join our community of scholars exploring the
-                  humanities and interpretive social sciences.
+                  {extractSectionText(content.htmlContent, "connect-intro")}
                 </Paragraph>
               </div>
             </div>
@@ -62,15 +74,7 @@ export default function ContactPage() {
             <div className="contact-page__form">
               <H2>Send Us a Message</H2>
               <Paragraph>
-                For inquiries about events, collaborations, or membership,
-                please email us at{" "}
-                <a href={`mailto:${CONTACT_INFO.email}`}>
-                  {CONTACT_INFO.email}
-                </a>
-                .
-              </Paragraph>
-              <Paragraph>
-                We typically respond within 2-3 business days.
+                {extractSectionText(content.htmlContent, "message-intro")}
               </Paragraph>
 
               <div className="contact-page__quick-links">
