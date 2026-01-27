@@ -63,10 +63,7 @@ export async function getPageContent(
  * @param sectionId - ID of the section to extract (from ## section-id)
  * @returns HTML content of the section
  */
-export function extractSection(
-  htmlContent: string,
-  sectionId: string
-): string {
+export function extractSection(htmlContent: string, sectionId: string): string {
   // Match section starting with <h2 id="sectionId">
   // and ending before the next <h2> or end of content
   const sectionRegex = new RegExp(
@@ -134,9 +131,7 @@ export function parseContentItems(
 
     let content: string;
     if (nextHeadingMatch) {
-      content = remainingContent
-        .slice(0, nextHeadingMatch.index)
-        .trim();
+      content = remainingContent.slice(0, nextHeadingMatch.index).trim();
     } else {
       content = remainingContent.trim();
     }

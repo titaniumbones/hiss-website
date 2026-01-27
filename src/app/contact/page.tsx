@@ -65,7 +65,9 @@ export default async function ContactPage() {
               <div className="contact-page__section">
                 <h3>{metadata.emailLabel}</h3>
                 <Paragraph>
-                  <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+                  <a href={`mailto:${contactInfo.email}`}>
+                    {contactInfo.email}
+                  </a>
                 </Paragraph>
               </div>
 

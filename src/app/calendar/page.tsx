@@ -79,7 +79,7 @@ export default async function CalendarPage() {
     stepsIntro: "How to get your Outlook ICS URL:",
     steps: [
       "Open your Outlook calendar",
-      'Click Calendar > Share',
+      "Click Calendar > Share",
       'Click "Publish Calendar"',
       "Copy the ICS URL",
       "Add it to your .env.local file",
@@ -107,7 +107,9 @@ export default async function CalendarPage() {
             <div className="calendar-page__placeholder">
               <H2>{setupRequired.heading}</H2>
               <Paragraph>{setupRequired.intro}</Paragraph>
-              <pre className="calendar-page__code">{setupRequired.codeExample}</pre>
+              <pre className="calendar-page__code">
+                {setupRequired.codeExample}
+              </pre>
               <Paragraph>
                 <strong>{setupRequired.stepsIntro}</strong>
               </Paragraph>

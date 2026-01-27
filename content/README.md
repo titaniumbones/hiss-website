@@ -25,12 +25,13 @@ Frontmatter appears at the top of the file between `---` delimiters and contains
 title: "Page Title"
 description: "SEO description for search engines"
 heroSubtitle: "Subtitle text that appears on the page"
-lastUpdated: "2024-01-23"  # Optional
-keywords: ["keyword1", "keyword2"]  # Optional
+lastUpdated: "2024-01-23" # Optional
+keywords: ["keyword1", "keyword2"] # Optional
 ---
 ```
 
 **Important Fields:**
+
 - `title`: Used for browser tab title and SEO
 - `description`: Used for search engine descriptions and social media previews
 - Custom fields (like `heroSubtitle`): Used in specific page sections
@@ -43,7 +44,7 @@ After the frontmatter, content is organized into sections using heading IDs:
 ## section-id
 
 This is the content for this section. It can include **bold text**,
-*italic text*, [links](https://example.com), and more.
+_italic text_, [links](https://example.com), and more.
 
 ## another-section
 
@@ -53,6 +54,7 @@ More content here.
 ```
 
 **How Section IDs Work:**
+
 - Use `## section-id` to create reusable content sections
 - The page code references these by ID (e.g., `intro`, `mission`, `vision`)
 - Section IDs should use lowercase with hyphens (kebab-case)
@@ -132,7 +134,7 @@ The site will automatically rebuild and deploy on Netlify.
 
 ```markdown
 **Bold text**
-*Italic text*
+_Italic text_
 ~~Strikethrough~~
 `inline code`
 ```
@@ -159,7 +161,9 @@ The site will automatically rebuild and deploy on Netlify.
 
 ```markdown
 ## Heading 2
+
 ### Heading 3
+
 #### Heading 4
 ```
 
@@ -190,6 +194,7 @@ The site will automatically rebuild and deploy on Netlify.
 ### Getting Help
 
 If you encounter issues:
+
 1. Check the Next.js build logs on Netlify
 2. Test locally with `npm run dev` to see error messages
 3. Review this guide for proper formatting examples

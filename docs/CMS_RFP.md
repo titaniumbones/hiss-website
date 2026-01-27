@@ -19,6 +19,7 @@ This document outlines requirements, evaluates platform options, and recommends 
 ## Current State
 
 ### Content Architecture
+
 - **Framework:** Next.js 15 with static site generation
 - **Hosting:** Netlify
 - **Content storage:** Git repository (YAML + Markdown files)
@@ -29,12 +30,14 @@ This document outlines requirements, evaluates platform options, and recommends 
   - Calendar events (external Outlook ICS feed)
 
 ### Current Strengths
+
 - Version control for all content changes
 - Zero hosting costs for content
 - Fast build times
 - Full audit trail via git history
 
 ### Current Limitations
+
 - Requires git knowledge to edit content
 - No visual preview during editing
 - No role-based access control
@@ -45,6 +48,7 @@ This document outlines requirements, evaluates platform options, and recommends 
 ## Requirements
 
 ### Must Have (P0)
+
 1. **Non-technical editing** - WYSIWYG or rich text editing for content
 2. **Preview capability** - See changes before publishing
 3. **Next.js integration** - Works with static site generation
@@ -53,6 +57,7 @@ This document outlines requirements, evaluates platform options, and recommends 
 6. **Markdown support** - For existing page content
 
 ### Should Have (P1)
+
 1. **Role-based access** - Admin, editor, reviewer roles
 2. **Media management** - Image upload and optimization
 3. **Draft/publish workflow** - Review before going live
@@ -60,6 +65,7 @@ This document outlines requirements, evaluates platform options, and recommends 
 5. **API access** - For potential future integrations
 
 ### Nice to Have (P2)
+
 1. **Scheduled publishing** - Publish at specific times
 2. **Multi-language support** - For future expansion
 3. **Content localization** - Different content per locale
@@ -76,6 +82,7 @@ This document outlines requirements, evaluates platform options, and recommends 
 **Pricing:** Free
 
 **Pros:**
+
 - Free and open source
 - Direct git integration (content stays in repo)
 - Netlify Identity for auth
@@ -83,6 +90,7 @@ This document outlines requirements, evaluates platform options, and recommends 
 - Full audit trail via git
 
 **Cons:**
+
 - Limited WYSIWYG capabilities
 - No real-time collaboration
 - Requires Netlify Identity setup
@@ -96,6 +104,7 @@ This document outlines requirements, evaluates platform options, and recommends 
 **Pricing:** Free tier, $99/mo for teams
 
 **Pros:**
+
 - Visual editing directly on page
 - Git-backed content
 - Real-time preview
@@ -103,6 +112,7 @@ This document outlines requirements, evaluates platform options, and recommends 
 - Good Next.js integration
 
 **Cons:**
+
 - Newer platform, smaller community
 - Team features require paid plan
 - Learning curve for setup
@@ -115,6 +125,7 @@ This document outlines requirements, evaluates platform options, and recommends 
 **Pricing:** Free tier (10K API requests/mo), $99/mo Growth
 
 **Pros:**
+
 - Flexible content modeling
 - Real-time collaboration
 - Excellent developer experience
@@ -122,6 +133,7 @@ This document outlines requirements, evaluates platform options, and recommends 
 - Portable Text for rich content
 
 **Cons:**
+
 - Content not in git
 - API-based (requires integration work)
 - Costs scale with usage
@@ -135,12 +147,14 @@ This document outlines requirements, evaluates platform options, and recommends 
 **Pricing:** Free (self-host), Cloud from $29/mo
 
 **Pros:**
+
 - Full control (self-hosted)
 - Open source
 - Customizable admin panel
 - REST and GraphQL APIs
 
 **Cons:**
+
 - Requires hosting/maintenance
 - More complex setup
 - Database required
@@ -154,12 +168,14 @@ This document outlines requirements, evaluates platform options, and recommends 
 **Pricing:** Free tier, from $489/mo for teams
 
 **Pros:**
+
 - Enterprise-grade
 - Excellent documentation
 - Rich ecosystem
 - Advanced workflows
 
 **Cons:**
+
 - Expensive at scale
 - Content not in git
 - Complex for simple sites
@@ -171,16 +187,16 @@ This document outlines requirements, evaluates platform options, and recommends 
 
 ## Comparison Matrix
 
-| Feature | Decap | Tina | Sanity | Strapi | Contentful |
-|---------|-------|------|--------|--------|------------|
-| **Pricing** | Free | Free-$99 | Free-$99 | Free-$29 | Free-$489 |
-| **Git-backed** | ✅ | ✅ | ❌ | ❌ | ❌ |
-| **Visual editing** | Basic | Excellent | Good | Good | Good |
-| **Real-time collab** | ❌ | Limited | ✅ | ❌ | ✅ |
-| **Self-host option** | N/A | ❌ | ❌ | ✅ | ❌ |
-| **Media handling** | Basic | Good | Excellent | Good | Excellent |
-| **Setup complexity** | Low | Medium | Medium | High | Medium |
-| **Next.js support** | Good | Excellent | Excellent | Good | Excellent |
+| Feature              | Decap | Tina      | Sanity    | Strapi   | Contentful |
+| -------------------- | ----- | --------- | --------- | -------- | ---------- |
+| **Pricing**          | Free  | Free-$99  | Free-$99  | Free-$29 | Free-$489  |
+| **Git-backed**       | ✅    | ✅        | ❌        | ❌       | ❌         |
+| **Visual editing**   | Basic | Excellent | Good      | Good     | Good       |
+| **Real-time collab** | ❌    | Limited   | ✅        | ❌       | ✅         |
+| **Self-host option** | N/A   | ❌        | ❌        | ✅       | ❌         |
+| **Media handling**   | Basic | Good      | Excellent | Good     | Excellent  |
+| **Setup complexity** | Low   | Medium    | Medium    | High     | Medium     |
+| **Next.js support**  | Good  | Excellent | Excellent | Good     | Excellent  |
 
 ---
 
@@ -198,12 +214,14 @@ This document outlines requirements, evaluates platform options, and recommends 
 ### Recommended Approach
 
 **Phase 1: Decap CMS (Immediate)**
+
 - Add Decap CMS to existing site
 - Configure for YAML/Markdown editing
 - Use Netlify Identity for authentication
 - Estimated effort: 1-2 days
 
 **Phase 2: Evaluate Visual Editing (Future)**
+
 - If visual editing becomes critical, evaluate Tina CMS
 - Migrate if Decap proves insufficient
 - Estimated effort: 3-5 days
@@ -297,16 +315,16 @@ collections:
 
 ### Year 1 Costs
 
-| Option | Setup Cost | Annual Cost | Total Y1 |
-|--------|------------|-------------|----------|
-| Decap CMS | $0 | $0 | **$0** |
-| Tina CMS (Free) | $0 | $0 | **$0** |
-| Tina CMS (Team) | $0 | $1,188 | $1,188 |
-| Sanity (Free) | $0 | $0 | **$0** |
-| Sanity (Growth) | $0 | $1,188 | $1,188 |
-| Contentful | $0 | $5,868 | $5,868 |
+| Option          | Setup Cost | Annual Cost | Total Y1 |
+| --------------- | ---------- | ----------- | -------- |
+| Decap CMS       | $0         | $0          | **$0**   |
+| Tina CMS (Free) | $0         | $0          | **$0**   |
+| Tina CMS (Team) | $0         | $1,188      | $1,188   |
+| Sanity (Free)   | $0         | $0          | **$0**   |
+| Sanity (Growth) | $0         | $1,188      | $1,188   |
+| Contentful      | $0         | $5,868      | $5,868   |
 
-*Note: "Setup Cost" assumes internal development time, not external contractors.*
+_Note: "Setup Cost" assumes internal development time, not external contractors._
 
 ---
 
@@ -333,6 +351,7 @@ collections:
 ### Rollback Plan
 
 Since Decap CMS is git-based:
+
 - All changes are git commits
 - Can revert any change via git
 - Remove `/admin` folder to disable CMS
@@ -342,13 +361,13 @@ Since Decap CMS is git-based:
 
 ## Decision Framework
 
-| If... | Then consider... |
-|-------|------------------|
-| Budget is primary concern | Decap CMS (free) |
-| Visual editing is critical | Tina CMS |
-| Real-time collaboration needed | Sanity |
-| Full control required | Strapi (self-host) |
-| Enterprise requirements | Contentful |
+| If...                          | Then consider...   |
+| ------------------------------ | ------------------ |
+| Budget is primary concern      | Decap CMS (free)   |
+| Visual editing is critical     | Tina CMS           |
+| Real-time collaboration needed | Sanity             |
+| Full control required          | Strapi (self-host) |
+| Enterprise requirements        | Contentful         |
 
 ---
 

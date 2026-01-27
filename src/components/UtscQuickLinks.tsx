@@ -13,7 +13,10 @@ export default function UtscQuickLinks({ links }: UtscQuickLinksProps) {
             {links.map((link, index) => (
               <li key={link.href} className="utsc-quick-links__item">
                 {index > 0 && (
-                  <span className="utsc-quick-links__separator" aria-hidden="true">
+                  <span
+                    className="utsc-quick-links__separator"
+                    aria-hidden="true"
+                  >
                     |
                   </span>
                 )}

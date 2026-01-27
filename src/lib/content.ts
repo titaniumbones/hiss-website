@@ -219,7 +219,9 @@ export function getLogoConfig(): SiteConfig["logo"] {
 /**
  * Get calendar configuration
  */
-export function getCalendarConfig(): SiteConfig["calendar"] & { icsUrl: string } {
+export function getCalendarConfig(): SiteConfig["calendar"] & {
+  icsUrl: string;
+} {
   const config = getSiteConfig().calendar;
   return {
     ...config,

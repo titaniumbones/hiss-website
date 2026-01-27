@@ -4,14 +4,14 @@ This guide explains how to edit website content without touching code. All conte
 
 ## Quick Reference
 
-| Content Type | File Location | Format |
-|--------------|---------------|--------|
-| Site settings | `content/data/site.yaml` | YAML |
-| Navigation | `content/data/navigation.yaml` | YAML |
-| Departments | `content/data/departments.yaml` | YAML |
-| Contact info | `content/data/contact.yaml` | YAML |
-| Footer | `content/data/footer.yaml` | YAML |
-| Page content | `content/pages/*.md` | Markdown with YAML frontmatter |
+| Content Type  | File Location                   | Format                         |
+| ------------- | ------------------------------- | ------------------------------ |
+| Site settings | `content/data/site.yaml`        | YAML                           |
+| Navigation    | `content/data/navigation.yaml`  | YAML                           |
+| Departments   | `content/data/departments.yaml` | YAML                           |
+| Contact info  | `content/data/contact.yaml`     | YAML                           |
+| Footer        | `content/data/footer.yaml`      | YAML                           |
+| Page content  | `content/pages/*.md`            | Markdown with YAML frontmatter |
 
 ## Editing YAML Files
 
@@ -27,6 +27,7 @@ url: "https://hiss.utsc.utoronto.ca"
 ```
 
 **Fields:**
+
 - `name` - Short site name (used in footer, meta tags)
 - `fullName` - Full display name
 - `description` - Site description for SEO
@@ -51,10 +52,11 @@ utscQuickLinks:
 ```
 
 **To add a new nav item:**
+
 ```yaml
 main:
-  - label: "Resources"  # Display text
-    href: "/resources"  # Link URL
+  - label: "Resources" # Display text
+    href: "/resources" # Link URL
 ```
 
 ### Departments (`content/data/departments.yaml`)
@@ -95,7 +97,7 @@ quickLinks:
       href: "/calendar"
     - label: "UTSC Home"
       href: "https://www.utsc.utoronto.ca"
-      external: true  # Opens in new tab
+      external: true # Opens in new tab
 
 institutionalLinks:
   - label: "Accessibility"
@@ -122,11 +124,11 @@ Each page has different frontmatter fields. Here's the general pattern:
 
 ```markdown
 ---
-title: "Page Title - HISS Hub"           # Browser tab title
-description: "Page description for SEO"  # Meta description
-pageTitle: "Visible Page Title"          # H1 heading on page
-headerSubtitle: "Subtitle text"          # Lead paragraph
-sectionHeading: "Section Name"           # Section headings
+title: "Page Title - HISS Hub" # Browser tab title
+description: "Page description for SEO" # Meta description
+pageTitle: "Visible Page Title" # H1 heading on page
+headerSubtitle: "Subtitle text" # Lead paragraph
+sectionHeading: "Section Name" # Section headings
 ---
 
 ## section-id

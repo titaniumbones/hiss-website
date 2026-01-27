@@ -12,7 +12,7 @@ setupRequired:
   steps:
     - "Open your Outlook calendar"
     - "Click Calendar > Share"
-    - "Click \"Publish Calendar\""
+    - 'Click "Publish Calendar"'
     - "Copy the ICS URL"
     - "Add it to your .env.local file"
 errorState:
