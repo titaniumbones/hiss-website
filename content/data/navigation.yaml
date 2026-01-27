@@ -1,0 +1,28 @@
+# Navigation configuration
+# Main site navigation and UTSC quick links
+
+# Main navigation items
+main:
+  - label: "Home"
+    href: "/"
+  - label: "Calendar"
+    href: "/calendar"
+  - label: "About"
+    href: "/about"
+  - label: "Contact"
+    href: "/contact"
+
+# UTSC Quick Links bar (matches institutional pattern)
+utscQuickLinks:
+  - label: "Acorn"
+    href: "https://acorn.utoronto.ca"
+  - label: "Quercus"
+    href: "https://q.utoronto.ca"
+  - label: "Library"
+    href: "https://library.utsc.utoronto.ca"
+  - label: "Email"
+    href: "https://mail.utoronto.ca"
+  - label: "Maps"
+    href: "https://www.utsc.utoronto.ca/maps/"
+  - label: "UTSC Home"
+    href: "https://www.utsc.utoronto.ca"

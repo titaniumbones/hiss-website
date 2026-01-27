@@ -3,6 +3,13 @@ import "./globals.css";
 import "@/styles/main.scss";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import {
+  getMainNavigation,
+  getSiteName,
+  getDepartments,
+  getContactInfo,
+  getSiteDescription,
+} from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "HISS - Humanities & Interpretive Social Sciences Hub",
@@ -14,6 +21,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Load content data at the layout level (server component)
+  const navigation = getMainNavigation();
+  const siteName = getSiteName();
+  const siteDescription = getSiteDescription();
+  const departments = getDepartments();
+  const contactInfo = getContactInfo();
+
   return (
     <html lang="en">
       <body>
@@ -24,9 +38,14 @@ export default function RootLayout({
             minHeight: "100vh",
           }}
         >
-          <Header />
+          <Header navigation={navigation} />
           <main style={{ flex: 1 }}>{children}</main>
-          <Footer />
+          <Footer
+            siteName={siteName}
+            siteDescription={siteDescription}
+            departments={departments}
+            contactInfo={contactInfo}
+          />
         </div>
       </body>
     </html>

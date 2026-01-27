@@ -1,7 +1,11 @@
 ---
 title: "About - HISS Hub"
 description: "Learn about the Humanities and Interpretive Social Sciences Research Hub at UTSC"
+pageTitle: "About HISS Hub"
 headerSubtitle: "Building bridges across disciplines to advance humanities and social sciences research at UTSC."
+missionHeading: "Our Mission"
+departmentsHeading: "Founding Departments"
+activitiesHeading: "Our Activities"
 ---
 
 ## mission

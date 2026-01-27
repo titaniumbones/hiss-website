@@ -1,0 +1,21 @@
+# Founding Departments
+# The six UTSC departments that established HISS Hub
+
+departments:
+  - name: "Anthropology"
+    url: "https://www.utsc.utoronto.ca/anthropology/"
+
+  - name: "Department of Language Studies"
+    url: "https://www.utsc.utoronto.ca/dls/"
+
+  - name: "English"
+    url: "https://www.utsc.utoronto.ca/engdept/"
+
+  - name: "Geography"
+    url: "https://www.utsc.utoronto.ca/geography/"
+
+  - name: "Historical and Cultural Studies"
+    url: "https://www.utsc.utoronto.ca/hcs/"
+
+  - name: "Arts, Culture, and Media"
+    url: "https://www.utsc.utoronto.ca/acm/"

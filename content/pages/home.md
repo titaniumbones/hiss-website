@@ -1,7 +1,19 @@
 ---
 title: "HISS - Humanities & Interpretive Social Sciences Hub"
 description: "Fostering cross-disciplinary community and collaborative research at the University of Toronto Scarborough"
+heroTitle: "Humanities & Interpretive Social Sciences Hub"
 heroSubtitle: "Fostering cross-disciplinary community and collaborative research at the University of Toronto Scarborough."
+welcomeHeading: "Welcome to HISS Hub"
+departmentsHeading: "Founding Departments"
+missionHeading: "Our Mission"
+ctaHeading: "Get Involved"
+buttons:
+  viewEvents:
+    label: "View Events"
+    href: "/calendar"
+  learnMore:
+    label: "Learn More"
+    href: "/about"
 ---
 
 ## intro

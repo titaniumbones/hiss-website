@@ -1,7 +1,28 @@
 import { H1, H2, Paragraph } from "@/components/Typography";
-import { CONTACT_INFO } from "@/lib/constants";
+import { getContactInfo } from "@/lib/content";
 import { getPageContent, extractSectionText } from "@/lib/markdown";
 import "../../styles/pages/_contact.scss";
+
+// Define the expected frontmatter structure
+interface QuickLink {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
+interface ContactMetadata {
+  title: string;
+  description: string;
+  pageTitle: string;
+  headerSubtitle: string;
+  contactHeading: string;
+  emailLabel: string;
+  addressLabel: string;
+  connectLabel: string;
+  messageHeading: string;
+  quickLinksHeading: string;
+  quickLinks: QuickLink[];
+}
 
 export async function generateMetadata() {
   const content = await getPageContent("contact");
@@ -14,6 +35,7 @@ export async function generateMetadata() {
 
 export default async function ContactPage() {
   const content = await getPageContent("contact");
+  const contactInfo = getContactInfo();
 
   if (!content) {
     return (
@@ -23,14 +45,14 @@ export default async function ContactPage() {
     );
   }
 
+  const metadata = content.metadata as unknown as ContactMetadata;
+
   return (
     <div className="contact-page">
       <section className="contact-page__header">
         <div className="contact-page__container">
-          <H1>Contact Us</H1>
-          <Paragraph lead>
-            {content.metadata.headerSubtitle as string}
-          </Paragraph>
+          <H1>{metadata.pageTitle}</H1>
+          <Paragraph lead>{metadata.headerSubtitle}</Paragraph>
         </div>
       </section>
 
@@ -38,33 +60,31 @@ export default async function ContactPage() {
         <div className="contact-page__container">
           <div className="contact-page__grid">
             <div className="contact-page__info">
-              <H2>Contact Information</H2>
+              <H2>{metadata.contactHeading}</H2>
 
               <div className="contact-page__section">
-                <h3>Email</h3>
+                <h3>{metadata.emailLabel}</h3>
                 <Paragraph>
-                  <a href={`mailto:${CONTACT_INFO.email}`}>
-                    {CONTACT_INFO.email}
-                  </a>
+                  <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
                 </Paragraph>
               </div>
 
               <div className="contact-page__section">
-                <h3>Address</h3>
+                <h3>{metadata.addressLabel}</h3>
                 <address>
-                  {CONTACT_INFO.address.line1}
+                  {contactInfo.address.line1}
                   <br />
-                  {CONTACT_INFO.address.line2}
+                  {contactInfo.address.line2}
                   <br />
-                  {CONTACT_INFO.address.city}, {CONTACT_INFO.address.province}{" "}
-                  {CONTACT_INFO.address.postalCode}
+                  {contactInfo.address.city}, {contactInfo.address.province}{" "}
+                  {contactInfo.address.postalCode}
                   <br />
-                  {CONTACT_INFO.address.country}
+                  {contactInfo.address.country}
                 </address>
               </div>
 
               <div className="contact-page__section">
-                <h3>Connect With Us</h3>
+                <h3>{metadata.connectLabel}</h3>
                 <Paragraph>
                   {extractSectionText(content.htmlContent, "connect-intro")}
                 </Paragraph>
@@ -72,25 +92,26 @@ export default async function ContactPage() {
             </div>
 
             <div className="contact-page__form">
-              <H2>Send Us a Message</H2>
+              <H2>{metadata.messageHeading}</H2>
               <Paragraph>
                 {extractSectionText(content.htmlContent, "message-intro")}
               </Paragraph>
 
               <div className="contact-page__quick-links">
-                <h3>Quick Links</h3>
+                <h3>{metadata.quickLinksHeading}</h3>
                 <ul>
-                  <li>
-                    <a href="/calendar">View Events Calendar</a>
-                  </li>
-                  <li>
-                    <a href="/about">Learn About HISS Hub</a>
-                  </li>
-                  <li>
-                    <a href="https://www.utsc.utoronto.ca">
-                      Visit UTSC Website
-                    </a>
-                  </li>
+                  {metadata.quickLinks.map((link) => (
+                    <li key={link.href}>
+                      <a
+                        href={link.href}
+                        {...(link.external
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

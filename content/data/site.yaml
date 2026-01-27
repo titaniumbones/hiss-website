@@ -1,0 +1,32 @@
+# Site configuration
+# All site-wide settings and metadata
+
+name: "HISS Hub"
+fullName: "Humanities & Interpretive Social Sciences Hub"
+description: "Humanities and Interpretive Social Sciences Research Hub at UTSC"
+url: "https://hiss.utsc.utoronto.ca"
+
+# Organization info
+organization:
+  name: "University of Toronto Scarborough"
+  shortName: "UTSC"
+  url: "https://www.utsc.utoronto.ca"
+
+# Logo configuration
+logo:
+  default:
+    src: "/images/logos/utsc-logo.svg"
+    width: 200
+    height: 60
+  white:
+    src: "/images/logos/utsc-logo-white.svg"
+    width: 200
+    height: 60
+  fallback:
+    src: "/images/logos/utsc-logo.png"
+    width: 400
+    height: 120
+
+# Calendar configuration (ICS URL set via environment variable)
+calendar:
+  maxEvents: 10

@@ -4,9 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
-import { NAVIGATION_ITEMS } from "@/lib/constants";
+import type { NavigationItem } from "@/lib/content";
 
-export default function Header() {
+interface HeaderProps {
+  navigation: NavigationItem[];
+}
+
+export default function Header({ navigation }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -25,7 +29,7 @@ export default function Header() {
 
         <nav className="header__nav" aria-label="Main navigation">
           <ul className="nav__list">
-            {NAVIGATION_ITEMS.map((item) => (
+            {navigation.map((item) => (
               <li key={item.href} className="nav__item">
                 <Link
                   href={item.href}
@@ -78,7 +82,7 @@ export default function Header() {
           aria-label="Mobile navigation"
         >
           <ul className="nav__list">
-            {NAVIGATION_ITEMS.map((item) => (
+            {navigation.map((item) => (
               <li key={item.href} className="nav__item">
                 <Link
                   href={item.href}

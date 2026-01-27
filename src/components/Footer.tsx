@@ -1,7 +1,19 @@
 import Link from "next/link";
-import { CONTACT_INFO, FOUNDING_DEPARTMENTS, SITE_NAME } from "@/lib/constants";
+import type { Department, ContactConfig } from "@/lib/content";
 
-export default function Footer() {
+interface FooterProps {
+  siteName: string;
+  siteDescription: string;
+  departments: Department[];
+  contactInfo: ContactConfig;
+}
+
+export default function Footer({
+  siteName,
+  siteDescription,
+  departments,
+  contactInfo,
+}: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -9,17 +21,14 @@ export default function Footer() {
       <div className="footer__container">
         <div className="footer__content">
           <div className="footer__section">
-            <h3>About {SITE_NAME}</h3>
-            <p>
-              A research hub fostering cross-disciplinary community for faculty
-              at the University of Toronto Scarborough.
-            </p>
+            <h3>About {siteName}</h3>
+            <p>{siteDescription}</p>
           </div>
 
           <div className="footer__section">
             <h3>Founding Departments</h3>
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-              {FOUNDING_DEPARTMENTS.map((dept) => (
+              {departments.map((dept) => (
                 <li key={dept.name} style={{ marginBottom: "0.5rem" }}>
                   <a href={dept.url} target="_blank" rel="noopener noreferrer">
                     {dept.name}
@@ -33,17 +42,15 @@ export default function Footer() {
             <h3>Contact</h3>
             <address>
               <p>
-                {CONTACT_INFO.address.line1}
+                {contactInfo.address.line1}
                 <br />
-                {CONTACT_INFO.address.line2}
+                {contactInfo.address.line2}
                 <br />
-                {CONTACT_INFO.address.city}, {CONTACT_INFO.address.province}{" "}
-                {CONTACT_INFO.address.postalCode}
+                {contactInfo.address.city}, {contactInfo.address.province}{" "}
+                {contactInfo.address.postalCode}
               </p>
               <p>
-                <a href={`mailto:${CONTACT_INFO.email}`}>
-                  {CONTACT_INFO.email}
-                </a>
+                <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
               </p>
             </address>
           </div>

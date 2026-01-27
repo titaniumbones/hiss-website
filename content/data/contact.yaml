@@ -1,0 +1,22 @@
+# Contact Information
+# All HISS Hub contact details
+
+email: "hiss@utsc.utoronto.ca"
+
+address:
+  line1: "University of Toronto Scarborough"
+  line2: "1265 Military Trail"
+  city: "Scarborough"
+  province: "Ontario"
+  postalCode: "M1C 1A4"
+  country: "Canada"
+
+# Office hours (optional - can be added when available)
+# officeHours:
+#   days: "Monday - Friday"
+#   hours: "9:00 AM - 5:00 PM"
+
+# Social media links (optional - can be added when available)
+# social:
+#   twitter: "https://twitter.com/hisshub"
+#   linkedin: "https://linkedin.com/company/hisshub"

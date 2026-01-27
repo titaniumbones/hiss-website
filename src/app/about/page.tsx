@@ -1,5 +1,5 @@
 import { H1, H2, Paragraph } from "@/components/Typography";
-import { FOUNDING_DEPARTMENTS } from "@/lib/constants";
+import { getDepartments } from "@/lib/content";
 import {
   getPageContent,
   extractSection,
@@ -7,6 +7,17 @@ import {
   parseContentItems,
 } from "@/lib/markdown";
 import "../../styles/pages/_about.scss";
+
+// Define the expected frontmatter structure
+interface AboutMetadata {
+  title: string;
+  description: string;
+  pageTitle: string;
+  headerSubtitle: string;
+  missionHeading: string;
+  departmentsHeading: string;
+  activitiesHeading: string;
+}
 
 export async function generateMetadata() {
   const content = await getPageContent("about");
@@ -20,6 +31,7 @@ export async function generateMetadata() {
 
 export default async function AboutPage() {
   const content = await getPageContent("about");
+  const departments = getDepartments();
 
   if (!content) {
     return (
@@ -29,23 +41,22 @@ export default async function AboutPage() {
     );
   }
 
+  const metadata = content.metadata as unknown as AboutMetadata;
   const activityItems = parseContentItems(content.htmlContent, "activity-");
 
   return (
     <div className="about-page">
       <section className="about-page__header">
         <div className="about-page__container">
-          <H1>About HISS Hub</H1>
-          <Paragraph lead>
-            {content.metadata.headerSubtitle as string}
-          </Paragraph>
+          <H1>{metadata.pageTitle}</H1>
+          <Paragraph lead>{metadata.headerSubtitle}</Paragraph>
         </div>
       </section>
 
       <section className="about-page__content">
         <div className="about-page__container">
           <div className="about-page__mission">
-            <H2>Our Mission</H2>
+            <H2>{metadata.missionHeading}</H2>
             <div
               dangerouslySetInnerHTML={{
                 __html: extractSection(content.htmlContent, "mission"),
@@ -62,12 +73,12 @@ export default async function AboutPage() {
           </div>
 
           <div className="about-page__founding">
-            <H2>Founding Departments</H2>
+            <H2>{metadata.departmentsHeading}</H2>
             <Paragraph>
               {extractSectionText(content.htmlContent, "founding-intro")}
             </Paragraph>
             <div className="about-page__departments-list">
-              {FOUNDING_DEPARTMENTS.map((dept) => (
+              {departments.map((dept) => (
                 <div key={dept.name} className="about-page__department">
                   <h3>
                     <a
@@ -84,7 +95,7 @@ export default async function AboutPage() {
           </div>
 
           <div className="about-page__activities">
-            <H2>Our Activities</H2>
+            <H2>{metadata.activitiesHeading}</H2>
             <div className="about-page__activities-grid">
               {activityItems.map((item) => (
                 <div key={item.id} className="about-page__activity">
