@@ -1,0 +1,35 @@
+# Footer Configuration
+# UTSC-standard footer links and structure
+
+# About section text
+aboutDescription: "A research hub fostering cross-disciplinary community and collaborative research for faculty at the University of Toronto Scarborough."
+
+# Quick links section
+quickLinks:
+  heading: "Quick Links"
+  links:
+    - label: "View Events"
+      href: "/calendar"
+    - label: "About HISS Hub"
+      href: "/about"
+    - label: "Contact Us"
+      href: "/contact"
+    - label: "UTSC Home"
+      href: "https://www.utsc.utoronto.ca"
+      external: true
+
+# UTSC-standard institutional links (bottom bar)
+institutionalLinks:
+  - label: "Accessibility"
+    href: "https://www.utoronto.ca/accessibility"
+  - label: "Privacy"
+    href: "https://www.utoronto.ca/privacy"
+  - label: "Site Map"
+    href: "https://www.utsc.utoronto.ca/home/site-map"
+  - label: "Terms of Service"
+    href: "https://www.utoronto.ca/terms"
+
+# Copyright
+copyright:
+  organization: "University of Toronto"
+  startYear: 2024

@@ -37,6 +37,9 @@ export interface SiteConfig {
   calendar: {
     maxEvents: number;
   };
+  analytics?: {
+    gtmId?: string;
+  };
 }
 
 export interface NavigationItem {
@@ -75,6 +78,25 @@ export interface ContactConfig {
   social?: {
     twitter?: string;
     linkedin?: string;
+  };
+}
+
+export interface FooterLink {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
+export interface FooterConfig {
+  aboutDescription: string;
+  quickLinks: {
+    heading: string;
+    links: FooterLink[];
+  };
+  institutionalLinks: FooterLink[];
+  copyright: {
+    organization: string;
+    startYear: number;
   };
 }
 
@@ -155,6 +177,13 @@ export function getContactInfo(): ContactConfig {
   return loadYamlFile<ContactConfig>("contact.yaml");
 }
 
+/**
+ * Get footer configuration
+ */
+export function getFooterConfig(): FooterConfig {
+  return loadYamlFile<FooterConfig>("footer.yaml");
+}
+
 // =============================================================================
 // Convenience Exports (for backward compatibility during migration)
 // =============================================================================
@@ -196,6 +225,13 @@ export function getCalendarConfig(): SiteConfig["calendar"] & { icsUrl: string }
     ...config,
     icsUrl: process.env.NEXT_PUBLIC_CALENDAR_ICS_URL || "",
   };
+}
+
+/**
+ * Get analytics configuration (GTM ID)
+ */
+export function getAnalyticsConfig(): SiteConfig["analytics"] {
+  return getSiteConfig().analytics || {};
 }
 
 // =============================================================================

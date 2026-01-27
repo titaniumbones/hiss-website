@@ -1,0 +1,61 @@
+// UTSC Quick Links Bar
+// Matches institutional navigation pattern from UTSC department sites
+
+@use "../abstracts/variables" as *;
+
+.utsc-quick-links {
+  background-color: $uoft-blue;
+  color: $white;
+  font-size: 0.8125rem; // 13px - compact utility bar
+  line-height: 1;
+
+  &__container {
+    max-width: $max-width-content;
+    margin: 0 auto;
+    padding: $spacing-xs $spacing-md;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+
+    @media (max-width: $breakpoint-md) {
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__separator {
+    color: rgba($white, 0.5);
+    padding: 0 $spacing-sm;
+    font-size: 0.75rem;
+  }
+
+  &__link {
+    color: $white;
+    text-decoration: none;
+    padding: $spacing-xs 0;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus {
+      color: $light-gray;
+      text-decoration: underline;
+    }
+  }
+
+  // Hide on very small screens to save space
+  @media (max-width: $breakpoint-sm) {
+    display: none;
+  }
+}

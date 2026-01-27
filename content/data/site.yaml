@@ -30,3 +30,7 @@ logo:
 # Calendar configuration (ICS URL set via environment variable)
 calendar:
   maxEvents: 10
+
+# Analytics (Google Tag Manager)
+analytics:
+  gtmId: "GTM-KP9WSPQ"  # UTSC GTM container
