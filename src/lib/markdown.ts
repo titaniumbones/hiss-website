@@ -121,11 +121,14 @@ export function parseContentItems(
   let match;
   while ((match = headingRegex.exec(htmlContent)) !== null) {
     const id = `${prefix}${match[1]}`;
-    const heading = match[2].trim();
+    const heading = stripHtml(match[2]);
 
-    // Extract content after this heading until next heading or end
+    // Extract content after this heading until the next heading of the same
+    // or higher level (an h2 item owns the h3 beneath it), or the end
     const contentStart = match.index + match[0].length;
-    const nextHeadingRegex = /<h[23][^>]*>/i;
+    const nextHeadingRegex = match[0].startsWith("<h2")
+      ? /<h[12][^>]*>/i
+      : /<h[123][^>]*>/i;
     const remainingContent = htmlContent.slice(contentStart);
     const nextHeadingMatch = nextHeadingRegex.exec(remainingContent);
 
@@ -142,7 +145,7 @@ export function parseContentItems(
 
     if (h3Match) {
       // If there's an h3, use that as the heading
-      const h3Heading = h3Match[1].trim();
+      const h3Heading = stripHtml(h3Match[1]);
       // Remove the h3 from content
       const h3Content = content.replace(h3Regex, "").trim();
 
@@ -170,7 +173,34 @@ export function parseContentItems(
  * @returns Plain text
  */
 function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, "").trim();
+  return decodeEntities(html.replace(/<[^>]*>/g, "")).trim();
+}
+
+/**
+ * Decode the HTML entities rehype emits, so plain-text fields rendered by
+ * React show "&" rather than "&#x26;"
+ * @param text - Text containing HTML entities
+ * @returns Decoded text
+ */
+function decodeEntities(text: string): string {
+  const named: Record<string, string> = {
+    amp: "&",
+    lt: "<",
+    gt: ">",
+    quot: '"',
+    apos: "'",
+    nbsp: "\u00a0",
+  };
+  return text.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (entity, code) => {
+    if (code[0] === "#") {
+      const n =
+        code[1] === "x" || code[1] === "X"
+          ? parseInt(code.slice(2), 16)
+          : parseInt(code.slice(1), 10);
+      return String.fromCodePoint(n);
+    }
+    return named[code.toLowerCase()] ?? entity;
+  });
 }
 
 /**

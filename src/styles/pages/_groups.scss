@@ -1,0 +1,57 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.groups-page {
+  &__header {
+    background-color: rgba(30, 55, 101, 0.05);
+    padding: $spacing-xxl 0;
+    border-bottom: 1px solid $light-gray;
+  }
+
+  &__content {
+    padding: $spacing-xxl 0;
+  }
+
+  &__container {
+    @include container;
+    max-width: 900px;
+  }
+
+  &__intro,
+  &__groups,
+  &__join {
+    margin-bottom: $spacing-xxl * 2;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: $spacing-xl;
+    margin-top: $spacing-lg;
+
+    @include respond-to("md") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__group {
+    background-color: rgba(30, 55, 101, 0.05);
+    padding: $spacing-lg;
+    border-radius: 4px;
+    border-left: 4px solid $uoft-blue;
+
+    h3 {
+      font-size: $font-size-h4;
+      font-weight: $font-weight-bold;
+      color: $uoft-blue;
+      margin-bottom: $spacing-sm;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
