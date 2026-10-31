@@ -9,6 +9,8 @@ main:
     href: "/calendar"
   - label: "About"
     href: "/about"
+  - label: "Working Groups"
+    href: "/groups"
   - label: "Contact"
     href: "/contact"
 
